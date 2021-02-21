@@ -227,8 +227,9 @@ int main(void) {
     ctrl.basket[MATCHES] = msgget(0x30 + MATCHES, IPC_CREAT | 0600);
     ctrl.basket[PAPER] = msgget(0x30 + PAPER, IPC_CREAT | 0600);
 
-    // Initial values of the products are set before the smokers start operating,
-    // so that they don't read random values from the shared memory.
+    // Initial prices of the products are set before the smokers start operating,
+    // so that they don't read random values from the shared memory if any of them
+    // happen to get through the semaphore before the agent does.
     int *prices = attach_memory(ctrl.prices);
     for (int ingredient = 0; ingredient < INGREDIENTS_NO; ingredient++)
         prices[ingredient + 1] = 10;
