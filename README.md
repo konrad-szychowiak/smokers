@@ -1,6 +1,6 @@
 # Zmodyfikowany Problem Placzy Tytoniu
 
-Konrad Szychowiak 144564
+Konrad Szychowiak
 
 ## Kompilacja
 
